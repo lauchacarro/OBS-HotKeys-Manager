@@ -1,0 +1,17 @@
+name: Build On Push
+on: 
+  push:
+    branches:
+    - develop      # Eventos de Push sobre el branch 'develop'
+    - master      # Eventos de Push sobre el branch 'master'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.0.100' # Versión del SDK.
+    - run: cd OBSHotKeysManager.Web && dotnet build --configuration Release
