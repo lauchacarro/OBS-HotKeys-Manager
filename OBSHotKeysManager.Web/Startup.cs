@@ -31,7 +31,8 @@ namespace OBSHotKeysManager.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMiddleware<HotkeysMiddlware>();
         }
     }
